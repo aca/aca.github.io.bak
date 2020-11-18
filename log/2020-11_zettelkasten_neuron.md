@@ -24,7 +24,7 @@ documents with directory-based hierarchies.
 By using just "files", I was able to achieve ...
 - Systems that I can fully control(data sync(syncthing), git, security..)
 - Plain file, which can easily be exported/imported, able to use my own search engine(rg, fzf)
-- No file format limitation(pandoc if 
+- No file format limitation
 - VIM as an editor
 - Fast, I don't want to wait for seconds to load/write a short memo
 
