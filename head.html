@@ -1,6 +1,15 @@
 
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<!-- <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&#38;display=swap" rel="stylesheet"> -->
+<!-- <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,600&#38;display=swap" rel="stylesheet"> -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Crimson Text', 'Source Code Pro']
+    }
+  });
+</script>
 
 <style>
 
@@ -9,8 +18,13 @@ img[src$="centerme"] {
   margin: 0 auto;
 }
 
-.ui.menu {
-  font-size: 0.7rem;
+ui.menu {
+  font-size: 0.6em;
+}
+
+/* tree icon disappear some times*/
+body .tree {
+  overflow: hidden;
 }
 
 .ui.text.container {

@@ -5,8 +5,7 @@ tags:
   - log
 ---
 
-Hi, I'm a programmer living in South Korea. I've been working on cloud infrastructure, web stuff.
-I enjoy building things from the ground.   
+Hi, I'm a programmer living in South Korea.
 
 This site is basically a public version of my zettelkasten.
 I will upload some personal logs and things I find interesting. I'm not a good writer but hope you enjoy it.

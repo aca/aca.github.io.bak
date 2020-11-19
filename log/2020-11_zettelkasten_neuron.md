@@ -35,7 +35,9 @@ directory was obviously not enough. And I found
 
 As far as I understand, zettelkasten is just a plain note taking system that has no hierarchies. 
 Notes are connected by some structured metadata, or just writing links to other notes. For linking, neuron use [Wiki-Style links](https://github.com/srid/neuron/pull/351).
-And that's it. [Knowledge Management software](https://en.wikipedia.org/wiki/Knowledge_management_software) like neuron will connect them together.
+
+And ... that's it!  
+[Knowledge Management software](https://en.wikipedia.org/wiki/Knowledge_management_software) like neuron will connect them together.
 
 <img src="./static/zettelkasten.png?centerme" width="500" style='padding: 2rem;'>
 
@@ -51,7 +53,7 @@ But I really love decisions made by [@srid](https://www.srid.ca/) for neuron.
 - Opensource, that doesn't go anywhere.
 - Command line support.
 - Editor of your own, powered by [LSP](https://github.com/srid/neuron/issues/213).  
-  (There's no official LSP support yet, but till then you can try [my own implementation in go](https://github.com/aca/neuron-language-server))
+  But there's no official LSP support yet, but till then you can try [my own implementation in go](https://github.com/aca/neuron-language-server). 
 
 I believe my life-long struggle has ended and excited to see how it will grow 10 years later.  
 One day I might also write my own version of neuron.
