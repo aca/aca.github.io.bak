@@ -1,18 +1,52 @@
+<!-- Font  -->
 
-<!-- <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&#38;display=swap" rel="stylesheet"> -->
-<!-- <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,600&#38;display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&#38;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,600&#38;display=swap" rel="stylesheet">
 
-<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 <script>
-  WebFont.load({
-    google: {
-      families: ['Crimson Text', 'Source Code Pro']
-    }
-  });
+window.addEventListener("load", mermaid.initialize({startOnLoad:true}))
 </script>
 
-<style>
+<!-- graphviz -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/viz.js" integrity="sha512-vnRdmX8ZxbU+IhA2gLhZqXkX1neJISG10xy0iP0WauuClu3AIMknxyDjYHEpEhi8fTZPyOCWgqUCnEafDB/jVQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/full.render.js" integrity="sha512-1zKK2bG3QY2JaUPpfHZDUMe3dwBwFdCDwXQ01GrKSd+/l0hqPbF+aak66zYPUZtn+o2JYi1mjXAqy5mW04v3iA==" crossorigin="anonymous"></script>
+<script>
+window.addEventListener("load", function(){
+  let viz = new Viz();
+  for (let element of document.getElementsByClassName("graphviz")) {
+    let parent = element.parentNode
+    let pparent = parent.parentNode
+    viz.renderSVGElement(element.textContent)
+    .then(function(element) {
+      element.setAttribute("width", "100%")
+      pparent.replaceChild(element, parent)
+    });
+  }
+});
+</script>
 
+<!-- chartjs -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js" integrity="sha512-SuxO9djzjML6b9w9/I07IWnLnQhgyYVSpHZx0JV97kGBfTIsUYlWflyuW4ypnvhBrslz1yJ3R+S14fdCWmSmSA==" crossorigin="anonymous"></script>
+<script>
+window.addEventListener("load", function(){
+  for (let element of document.getElementsByClassName("chartjs")) {
+    let parent = element.parentNode
+    let pparent = parent.parentNode
+    let canvas = document.createElement('canvas');
+    let box = document.createElement('div');
+    box.appendChild(canvas);
+    let ctx = canvas.getContext("2d")
+    let myChart = new Chart(ctx, JSON.parse(element.textContent));
+    box.setAttribute("style","display:block;width:75%;text-align:'center';margin: 5px auto;");
+    pparent.replaceChild(box, parent)
+  }
+});
+</script>
+
+<!-- Custom css  -->
+<style>
 img[src$="centerme"] {
   display:block;
   margin: 0 auto;
@@ -36,18 +70,63 @@ body .tree {
 }
 
 /* title */
+/* body div.zettel-view .zettel-content h1 { */
+/*   text-align: right !important; */
+/*   background-color: none !important; */
+/* } */
+
 body div.zettel-view .zettel-content h1 {
-  text-align: right !important;
-  background-color: none !important;
+  font-family: "Crimson Text", serif !important;
+  font-weight: 600 !important;
+  padding: 0.3rem !important;
+  border-bottom: none;
+  text-align: left;
+  background-color: inherit !important;
 }
 
-body div#neuron-theme-default-black .zettel-content h1 {
+body div.zettel-view .zettel-content h2 {
   font-family: "Crimson Text", serif !important;
-  font-style: italic;
-  font-weight: normal;
-  font-size: 1.1rem;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  font-weight: 600 !important;
+  padding: 0.3rem !important;
+  font-size: 1.75rem !important;
+  border-bottom: none;
+  text-align: left;
+  background-color: inherit !important;
+}
+
+
+body div.zettel-view .zettel-content h3 {
+  font-family: "Crimson Text", serif !important;
+  font-weight: 600 !important;
+  padding: 0.3rem !important;
+  font-size: 1.5rem !important;
+  border-bottom: none;
+  text-align: left;
+  background-color: inherit !important;
+}
+
+body div.zettel-view .zettel-content h4 {
+  font-family: "Crimson Text", serif !important;
+  font-weight: 600 !important;
+  font-size: 1.25rem !important;
+  padding: 0.3rem !important;
+  border-bottom: none;
+  text-align: left;
+  background-color: inherit !important;
+}
+
+#zettel-container > div.zettel-view > article > h1:first-child {
+/* body div#neuron-theme-default-black .zettel-content h1 { */
+  /* text-align: center !important; */
+  font-family: "Crimson Text", serif !important;
+  /* font-style: italic; */
+  text-align: right;
+  font-weight: normal !important;
+  font-size: 2rem;
+  padding: 1rem;
+  /* padding-top: 1rem; */
+  /* padding-right: 1rem; */
+  /* padding-left: 1rem; */
   background-color: inherit !important;
 }
 

@@ -2,7 +2,7 @@
 title: Introduction
 date: 2020-11-18
 tags:
-  - log
+  - timeline
 ---
 
 Hi, I'm a programmer living in South Korea.

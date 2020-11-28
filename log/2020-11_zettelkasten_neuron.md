@@ -1,8 +1,8 @@
 ---
-title: Zettelkasten, neuron
+title: "neuron: Zettelkasten"
 date: 2020-11-18T19:20
 tags:
-  - log
+  - timeline
   - neuron
   - zettelkasten
 ---
