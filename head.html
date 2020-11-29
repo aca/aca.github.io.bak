@@ -1,9 +1,9 @@
 <!-- Font  -->
-
+<!-- TODO: neuron has changed default font, remove it later  -->
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&#38;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,600&#38;display=swap" rel="stylesheet">
 
-
+<!-- mermaidjs -->
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 <script>
 window.addEventListener("load", mermaid.initialize({startOnLoad:true}))
@@ -61,19 +61,20 @@ body .tree {
   overflow: hidden;
 }
 
+/* width */
 .ui.text.container {
   max-width: 1000px;
+}
+
+@media screen and (min-width: 800px) {
+    .ui.attached.segment {
+      padding: 50px;
+    }
 }
 
 * {
   font-size: 16px;
 }
-
-/* title */
-/* body div.zettel-view .zettel-content h1 { */
-/*   text-align: right !important; */
-/*   background-color: none !important; */
-/* } */
 
 body div.zettel-view .zettel-content h1 {
   font-family: "Crimson Text", serif !important;
@@ -115,6 +116,7 @@ body div.zettel-view .zettel-content h4 {
   background-color: inherit !important;
 }
 
+/* title */
 #zettel-container > div.zettel-view > article > h1:first-child {
 /* body div#neuron-theme-default-black .zettel-content h1 { */
   /* text-align: center !important; */
@@ -164,9 +166,7 @@ body code, pre, tt {
 }
 
 .ui.text.container {
-  # font-family: "lotion", monospace !important;
   font-family: "Crimson Text", serif !important;
-  # src: url("static/Lotion-Regular.woff2");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
