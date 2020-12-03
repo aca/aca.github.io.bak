@@ -6,7 +6,7 @@ tags:
   - timeline
 ---
 
-Another experiments with neuron. !
+Another experiments with neuron.
 Zettel data is extracted from [srid.ca](https://www.srid.ca/).
 
   <style> body { margin: 0; } </style>
