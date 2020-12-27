@@ -144,12 +144,7 @@ body div.zettel-view .zettel-content h4 {
   width: 100%;
 }
 
-/* logo */
-div.ui.one.column.grid.footer-version > div > div > a > img {
-  display:none !important;
-}
-
-div.ui.one.column.grid.footer-version > div > div > a:before {
+.footer-version > div > a:before {
   content: "© 2020 rok" !important;
   font-size: 0.8rem;
 }
@@ -184,4 +179,22 @@ body code, pre, tt {
   gtag('js', new Date());
 
   gtag('config', 'UA-171033761-1');
+</script>
+
+<script>
+window.addEventListener("load", function(){
+  let element = document.querySelector('div.footer-version > div > a > img[alt="logo"]')
+  console.log(element)
+  let parent = element.parentNode.parentNode
+  element.remove()
+
+  let p = document.createElement("p")
+  let n = document.createTextNode("© 2020 rok")
+  p.appendChild(n)
+
+  parent.appendChild(n)
+
+  
+});
+
 </script>
