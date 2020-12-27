@@ -1,7 +1,6 @@
 ---
 title: root
 ---
-
 Personal log, and things I find interesting.  
 If you require any further information, feel free to contact me.
 
