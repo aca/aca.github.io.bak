@@ -1,8 +1,16 @@
 <!-- Font  -->
 <!-- TODO: neuron has changed default font, remove it later  -->
+<script src="https://livejs.com/live.js"></script>
+
+<!-- wrap markdown code block -->
+<style>
+code {
+  /* white-space : pre-wrap !important; */
+}
+</style>
+
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&#38;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,600&#38;display=swap" rel="stylesheet">
-<script src="https://livejs.com/live.js"></script>
 
 <!-- mermaidjs -->
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
@@ -48,6 +56,30 @@ window.addEventListener("load", function(){
 
 <!-- Custom css  -->
 <style>
+
+body {
+  /* position: relative !important; */
+  display: flex !important;
+  /* flex-direction: column !important; */
+  /* justify-content: center !important; */
+
+  font-family: "Crimson Text", serif !important;
+}
+
+.universe {
+  margin: auto !important;
+  /* position: absolute !important; */
+  /* top: 50% !important; */
+
+  /* display: inline-block !important; */
+  /* vertical-align: middle !important; */
+  /* transform: translate(0, -0%) !important; */
+}
+
+
+
+
+
 img[src$="centerme"] {
   display:block;
   margin: 0 auto;
@@ -59,23 +91,24 @@ ui.menu {
 }
 
 /* tree icon disappear some times*/
-body .tree {
-  overflow: hidden;
-}
+/* body .tree { */
+/*   overflow: hidden; */
+/* } */
 
 /* width */
 .ui.text.container {
-  max-width: 1000px;
+  max-width: 900px;
 }
 
-@media screen and (min-width: 800px) {
-    .ui.attached.segment {
-      padding: 50px;
-    }
-}
+/* @media screen and (min-width: 1000px) { */
+/*     .ui.attached.segment { */
+/*       padding: 50px; */
+/*     } */
+/* } */
 
 * {
   font-size: 16px;
+  font-display: block !important;
 }
 
 body div.zettel-view .zettel-content h1 {
@@ -122,7 +155,7 @@ body div.zettel-view .zettel-content h4 {
 #zettel-container > div.zettel-view > article > h1:first-child {
 /* body div#neuron-theme-default-black .zettel-content h1 { */
   /* text-align: center !important; */
-  font-family: "Crimson Text", serif !important;
+  /* font-family: "Crimson Text", serif !important; */
   /* font-style: italic; */
   text-align: right;
   font-weight: normal !important;
@@ -161,7 +194,7 @@ body code, pre, tt {
   font-family: "Crimson Text", serif !important;
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
+  /* font-display: swap; */
 }
 
 </style>
@@ -179,15 +212,16 @@ body code, pre, tt {
 <script>
 window.addEventListener("load", function(){
   let element = document.querySelector('div.footer-version > div > a > img[alt="logo"]')
-  console.log(element)
-  let parent = element.parentNode.parentNode
-  element.remove()
+  let parent = element.parentNode.parentNode.parentNode
+  // element.remove()
+  console.log(parent)
 
   let p = document.createElement("p")
   let n = document.createTextNode("© 2020 rok")
   p.appendChild(n)
-
-  parent.appendChild(n)
+  p.style.height = "80px";
+  // parent.appendChild(n)
+  parent.replaceChild(p, parent.firstChild)
+  // parent.replaceChild(element.parentNode, p)
 });
-
 </script>
