@@ -40,7 +40,7 @@ Zettel data is extracted from [srid.ca](https://www.srid.ca/).
             Graph.height(el.offsetWidth);
             el.style.visibility = "inherit";
             if(el.offsetWidth != 0) {
-                // erd.uninstall(el);
+                erd.uninstall(el);
             }
           }
      );
