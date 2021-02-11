@@ -40,6 +40,10 @@
     font-display: swap;
 }
 
+html {
+  font-size: 15px !important;
+}
+
 
 p,
 dl,
@@ -126,8 +130,14 @@ ui.menu {
 /*     } */
 /* } */
 
-.ui.attached.segment {
-  padding: 3rem;
+/* .ui.attached.segment { */
+/*   padding: 3rem; */
+/* } */
+
+@media screen and (min-width: 1000px) {
+    .ui.attached.segment {
+      padding: 3rem;
+    }
 }
 
 * {

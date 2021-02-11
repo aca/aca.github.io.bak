@@ -7,8 +7,8 @@ tags:
   - timeline
 ---
 
-I maintain the same neovim+tmux development environment in all my machines which also includes extremely slow free-tier cloud servers.
-If you ever have experienced performance issues with neovim(or vim) on slow machines, here are some tips and tricks you might find useful.
+I maintain same neovim+tmux development environment in all my machines which also includes extremely slow free-tier cloud servers.
+If you ever have experienced performance issues with neovim(or vim) like me, here are some tips and tricks you might find useful.
 Some of them are absolutely unnecessary if you are fine with your current configuration. But yes, overengineering workflow is always fun.
 
 Here's my [vimrc](https://github.com/aca/dotfiles/tree/master/.config/nvim).
@@ -68,7 +68,7 @@ let g:loaded_remote_plugins    = 1
 ```
 ## Visual settings
 
-These kinds of visual helpers cause too much screen redraw and cause significant lag. Turn it on when you need it.
+These kinds of visual helpers cause too much screen redraw and cause significant lag on large files. Turn it on when you need it.
 ```
 set nonumber
 set norelativenumber
@@ -76,10 +76,14 @@ set nocursorcolumn
 set nocursorline
 ```
 
+---
+
 Syntax highlighting of vim uses regex match. I believe it is one of the slowest
 operations in vim but there's not much we can do with it. But these options
-might help a bit. And, if syntax file is slow, `foldmethod=syntax` might also
-cause issue if you are editing huge file. 
+might help a bit.
+
+And, if syntax file is slow, `foldmethod=syntax` might also
+cause a lot of issues for large files like megabytes of json or minimized javascript codes.
 
 ```
 set synmaxcol=200
@@ -108,13 +112,24 @@ AVERAGE   MAX       MIN
 ## Plugins
 
 Vim supports lazy loading with "autoload". Plugins should not slow down your startup time if it's written in proper way.
-But many of them, even famous ones, doesn't consider startuptime issue seriously. Now vim has `:packadd`  which is vim's native package loading system. You can circumvent this issues without fixing plugin itself.
+But many of them, even famous ones, doesn't consider startuptime issue seriously. 
+
+For example, here's startuptime comparison with [vim-fugitive](https://github.com/tpope/vim-fugitive) and [gina.vim](https://github.com/lambdalisue/gina.vim).
+```
+1.257800  1.283000  1.242000: /home/rok/.local/share/nvim/site/pack/paqs/start/vim-fugitive/plugin/fugitive.vim
+0.022200  0.023000  0.022000: /home/rok/.local/share/nvim/site/pack/paqs/start/gina.vim/plugin/gina.vim
+```
+
+And [vim-easymotion](https://github.com/easymotion/vim-easymotion) also have huge `plugin/` files that would have been much better if is autoloaded.
+```
+3.766800  3.910000  3.686000: /home/rok/.local/share/nvim/site/pack/paqs/start/vim-easymotion/plugin/EasyMotion.vim
+```
+
+I tried to maintain fork of the few plugins, but as now vim has `:packadd` which is vim's native package loading system, we can circumvent this issues without fixing plugin itself.
 
 But first of all, you should use plugin manager that works well with `:packadd` instead of famous [vim-plug](https://github.com/junegunn/vim-plug).
-I use [savq/paq-nvim](https://github.com/savq/paq-nvim) written in lua. With only much much readable 150 LOC, it supports all the features like 
-`:PaqInstall`,`:PaqClean`, `:PaqUpdate`. The most amazing part of it is that you can even make paq itself optional.
-
-And with packadd you can do things like
+I use [savq/paq-nvim](https://github.com/savq/paq-nvim) written in lua. With only much much readable 150 LOC, it supports all the features I need 
+`:PaqInstall`,`:PaqClean`, `:PaqUpdate`. The most amazing part I realized later on is that you can even make paq itself optional. And with packadd you can do pure lazyloading without any plugin management support like this.
 
 ```
 " fzf/fzf.vim
@@ -125,14 +140,24 @@ command! MarkdownPreview packadd markdown-preview.nvim | call mkdp#util#open_pre
 
 " phaazon/hop.nvim
 nmap <silent><Leader>w :packadd hop.nvim \| :lua require'hop'.jump_words()<cr>
+
+" lazy loading by filetypes
+autocmd! FileType go packadd vim-goaddtags | packadd nvim-go
+autocmd! FileType yaml packadd vim-yaml-folds
+autocmd! FileType markdown packadd vim-markdown | packadd vim-markdown-folding | packadd md-img-paste.vim
+autocmd! FileType qf packadd quickfix-reflector.vim
 ```
 
 With these tricks, I could reduce 20ms of startuptime compared to the vim-plug setup. This kind of setup was not was easy to configure with vim-plug's lazyloading features.
 And I felt that plug itself get quite slow with huge, complex configs.
 
-In terms of the plugin itself, many of them are newly developed or rewritten from scratch(in lua) by awesome developers everyday.
-And neovim is adopting many features of plugins into the core, like [lsp](https://neovim.io/doc/user/lsp.html) and [treesitter](https://github.com/nvim-treesitter/nvim-treesitter).
-You might want to check [r/neovim](https://www.reddit.com/r/neovim), [gitter/neovim](https://gitter.im/neovim/neovim) for any updates.
-
-
-
+In terms of the plugin itself, many of them are newly developed or rewritten
+from scratch by awesome developers everyday. Many of them feel much better as
+they use latest vim/neovim's core features or developed in lua. Especially
+neovim is adopting many features of plugins into the core, like
+[lsp](https://neovim.io/doc/user/lsp.html) and
+[treesitter](https://github.com/nvim-treesitter/nvim-treesitter). There's also
+[telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) which
+replaces fzf. You might want to check
+[r/neovim](https://www.reddit.com/r/neovim),
+[gitter/neovim](https://gitter.im/neovim/neovim) for latest updates.
