@@ -1,23 +1,206 @@
-<!-- TODO: neuron has changed default font, remove it later  -->
-<script src="https://livejs.com/live.js"></script>
-
-
-<!-- wrap markdown code block -->
-<style>
-code {
-  /* white-space : pre-wrap !important; */
-}
-html { margin-left: calc(100vw - 100%); }
-</style>
-
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&#38;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,600&#38;display=swap" rel="stylesheet">
 
+<!-- wrap markdown code block -->
+<style>
+/*
+p {
+  margin: 0 0 0em !important;
+} */
+
+/* fix wierd code block indent */
+body div.zettel-view .zettel-content p code, li code, ol code  {
+  padding: initial;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991.98px) {
+  .ui.ui.ui.container:not(.fluid) {
+    width: auto !important;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199.98px) {
+  .ui.ui.ui.container:not(.fluid) {
+    width: auto !important;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .ui.ui.ui.container:not(.fluid) {
+    width: auto !important;
+  }
+}
+
+
+#zettel-container {
+    max-width: 900px !important;
+}
+
+
+code, pre {
+  /* white-space : pre-wrap !important; */
+  font-size: 0.9em !important;
+  /* line-height: 0.9em !important; */
+}
+
+* {
+  font-family: "Crimson Text";
+  font-size: large;
+}
+
+
+/* center vertical */
+body {
+  display: flex !important;
+}
+.universe {
+  margin: auto !important;
+}
+
+/* css to center image */
+/* <img src="./image.gif?centerme" width="500"> */
+img[src$="centerme"] {
+  display:block;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+ui.menu {
+  font-size: 0.6em;
+}
+
+/* width */
+/* .ui.text.container { */
+/*   max-width: 900px; */
+/* } */
+
+/* @media screen and (min-width: 1000px) { */
+/*     .ui.attached.segment { */
+/*       padding: 50px; */
+/*     } */
+/* } */
+
+* {
+  font-display: block !important;
+}
+
+/* body div.zettel-view .zettel-content h1 { */
+/*   font-family: "Crimson Text", serif !important; */
+/*   font-weight: 600 !important; */
+/*   padding: 0.3rem !important; */
+/*   border-bottom: none; */
+/*   text-align: left; */
+/*   background-color: inherit !important; */
+/* } */
+/*  */
+/* body div.zettel-view .zettel-content h2 { */
+/*   font-family: "Crimson Text", serif !important; */
+/*   font-weight: 600 !important; */
+/*   padding: 0.3rem !important; */
+/*   font-size: 2rem !important; */
+/*   border-bottom: none; */
+/*   text-align: left; */
+/*   background-color: inherit !important; */
+/* } */
+/*  */
+/*  */
+/* body div.zettel-view .zettel-content h3 { */
+/*   font-family: "Crimson Text", serif !important; */
+/*   font-weight: 600 !important; */
+/*   padding: 0.3rem !important; */
+/*   font-size: 1.75rem !important; */
+/*   border-bottom: none; */
+/*   text-align: left; */
+/*   background-color: inherit !important; */
+/* } */
+/*  */
+/* body div.zettel-view .zettel-content h4 { */
+/*   font-family: "Crimson Text", serif !important; */
+/*   font-weight: 600 !important; */
+/*   font-size: 1.5rem !important; */
+/*   padding: 0.3rem !important; */
+/*   border-bottom: none; */
+/*   text-align: left; */
+/*   background-color: inherit !important; */
+/* } */
+
+/* Title */
+#zettel-container > div.zettel-view > article > h1:first-child {
+  /* text-align: center !important; */
+  /* font-family: "Crimson Text", serif !important; */
+  /* font-style: italic; */
+  text-align: right;
+  font-weight: normal !important;
+  font-size: 2rem;
+  padding: 1rem;
+  /* padding-top: 1rem; */
+  /* padding-right: 1rem; */
+  /* padding-left: 1rem; */
+  background-color: inherit !important;
+}
+
+#neuron-theme-default-black > div > h1 {
+  font-family: "Crimson Text", serif !important;
+  font-weight: normal;
+}
+
+/* divider */
+.ui.horizontal.divider:before {
+  width: 100%;
+}
+
+/* link */
+body div#neuron-theme-default-black span.zettel-link-container span.zettel-link a {
+  color: inherit !important;
+}
+
+time {
+  font-family: "Crimson Text", monospace !important;
+}
+
+body code, pre, tt {
+  /* font-family: "Source Code Pro", monospace !important; */
+  font-family: "Dank Mono", monospace !important;
+}
+
+.ui.text.container {
+  font-family: "Crimson Text", serif !important;
+  font-weight: normal;
+  font-style: normal;
+  /* font-display: swap; */
+}
+</style>
+
+<!-- replace logo  -->
+<script>
+window.addEventListener("load", function(){
+  let element = document.querySelector('div.footer-version > div > a > img[alt="logo"]')
+  let parent = element.parentNode.parentNode.parentNode
+  // element.remove()
+  console.log(parent)
+
+  let p = document.createElement("p")
+  let n = document.createTextNode("© 2020 rok")
+  p.appendChild(n)
+  p.style.height = "80px";
+  // parent.appendChild(n)
+  parent.replaceChild(p, parent.firstChild)
+  // parent.replaceChild(element.parentNode, p)
+});
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171033761-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-171033761-1');
+</script>
+
 <!-- mermaidjs -->
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-<script>
-window.addEventListener("load", mermaid.initialize({startOnLoad:true}))
-</script>
+<script>window.addEventListener("load", mermaid.initialize({startOnLoad:true}))</script>
 
 <!-- graphviz -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/2.1.2/viz.js" integrity="sha512-vnRdmX8ZxbU+IhA2gLhZqXkX1neJISG10xy0iP0WauuClu3AIMknxyDjYHEpEhi8fTZPyOCWgqUCnEafDB/jVQ==" crossorigin="anonymous"></script>
@@ -55,174 +238,4 @@ window.addEventListener("load", function(){
 });
 </script>
 
-<!-- Custom css  -->
-<style>
-
-body {
-  /* position: relative !important; */
-  display: flex !important;
-  /* flex-direction: column !important; */
-  /* justify-content: center !important; */
-
-  font-family: "Crimson Text", serif !important;
-}
-
-.universe {
-  margin: auto !important;
-  /* position: absolute !important; */
-  /* top: 50% !important; */
-
-  /* display: inline-block !important; */
-  /* vertical-align: middle !important; */
-  /* transform: translate(0, -0%) !important; */
-}
-
-
-
-
-
-img[src$="centerme"] {
-  display:block;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-ui.menu {
-  font-size: 0.6em;
-}
-
-/* tree icon disappear some times*/
-/* body .tree { */
-/*   overflow: hidden; */
-/* } */
-
-/* width */
-<!-- .ui.text.container { -->
-<!--   max&#45;width: 900px; -->
-<!-- } -->
-
-/* @media screen and (min-width: 1000px) { */
-/*     .ui.attached.segment { */
-/*       padding: 50px; */
-/*     } */
-/* } */
-
-* {
-  font-size: 16px;
-  font-display: block !important;
-}
-
-body div.zettel-view .zettel-content h1 {
-  font-family: "Crimson Text", serif !important;
-  font-weight: 600 !important;
-  padding: 0.3rem !important;
-  border-bottom: none;
-  text-align: left;
-  background-color: inherit !important;
-}
-
-body div.zettel-view .zettel-content h2 {
-  font-family: "Crimson Text", serif !important;
-  font-weight: 600 !important;
-  padding: 0.3rem !important;
-  font-size: 2rem !important;
-  border-bottom: none;
-  text-align: left;
-  background-color: inherit !important;
-}
-
-
-body div.zettel-view .zettel-content h3 {
-  font-family: "Crimson Text", serif !important;
-  font-weight: 600 !important;
-  padding: 0.3rem !important;
-  font-size: 1.75rem !important;
-  border-bottom: none;
-  text-align: left;
-  background-color: inherit !important;
-}
-
-body div.zettel-view .zettel-content h4 {
-  font-family: "Crimson Text", serif !important;
-  font-weight: 600 !important;
-  font-size: 1.5rem !important;
-  padding: 0.3rem !important;
-  border-bottom: none;
-  text-align: left;
-  background-color: inherit !important;
-}
-
-/* title */
-#zettel-container > div.zettel-view > article > h1:first-child {
-/* body div#neuron-theme-default-black .zettel-content h1 { */
-  /* text-align: center !important; */
-  /* font-family: "Crimson Text", serif !important; */
-  /* font-style: italic; */
-  text-align: right;
-  font-weight: normal !important;
-  font-size: 2rem;
-  padding: 1rem;
-  /* padding-top: 1rem; */
-  /* padding-right: 1rem; */
-  /* padding-left: 1rem; */
-  background-color: inherit !important;
-}
-
-#neuron-theme-default-black > div > h1 {
-  font-family: "Crimson Text", serif !important;
-  font-weight: normal;
-}
-
-/* divider */
-.ui.horizontal.divider:before {
-  width: 100%;
-}
-
-/* link */
-body div#neuron-theme-default-black span.zettel-link-container span.zettel-link a {
-  color: inherit !important;
-}
-
-time {
-  font-family: "Crimson Text", monospace !important;
-}
-
-body code, pre, tt {
-  font-family: "Source Code Pro", monospace !important;
-}
-
-.ui.text.container {
-  font-family: "Crimson Text", serif !important;
-  font-weight: normal;
-  font-style: normal;
-  /* font-display: swap; */
-}
-
-</style>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171033761-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-171033761-1');
-</script>
-
-<script>
-window.addEventListener("load", function(){
-  let element = document.querySelector('div.footer-version > div > a > img[alt="logo"]')
-  let parent = element.parentNode.parentNode.parentNode
-  // element.remove()
-  console.log(parent)
-
-  let p = document.createElement("p")
-  let n = document.createTextNode("© 2020 rok")
-  p.appendChild(n)
-  p.style.height = "80px";
-  // parent.appendChild(n)
-  parent.replaceChild(p, parent.firstChild)
-  // parent.replaceChild(element.parentNode, p)
-});
-</script>
+<script src="https://livejs.com/live.js"></script>

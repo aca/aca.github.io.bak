@@ -5,7 +5,7 @@ tags:
   - timeline
 ---
 
-Hi, I'm a programmer living in South Korea.
+Hi, I'm a hobbyist programmer.
 
 This site is basically a public version of my zettelkasten.
 I will upload some personal logs and things I find interesting. I'm not a good writer but hope you enjoy it.

@@ -39,11 +39,11 @@ Notes are connected by some structured metadata, or just writing links to other 
 And ... that's it!  
 [Knowledge Management software](https://en.wikipedia.org/wiki/Knowledge_management_software) like neuron will connect them together.
 
-<img src="./static/zettelkasten.png?centerme" width="500" style='padding: 2rem;'>
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Zettelkasten_paper_schematic.png?centerme" width="700" style='padding: 2rem;'>
 
-Here are good articles introducing Zettelkasten.
+Here are articles I found interesting related to Zettelkasten.
 - [https://zettelkasten.de/posts/overview/](https://zettelkasten.de/posts/overview/)
-- [http://tkim.co/2020/09/15/zettelkasten/](http://tkim.co/2020/09/15/zettelkasten/) (Korean)
+- [https://notes.andymatuschak.org/Evergreen_notes](https://notes.andymatuschak.org/Evergreen_notes)
 
 There are actually multiple zettelkasten method implementations like
 [Roam](https://roamresearch.com/), [Foam](https://github.com/foambubble/foam).
