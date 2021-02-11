@@ -1,7 +1,5 @@
-{ siteTitle = "aca.github.io"
-, author = Some "aca"
+{ siteTitle = "rok"
 , theme = "black"
-, editUrl = Some "https://github.com/aca/aca.github.io/edit/master/"
-, mathJaxSupport = False
 , recurseDir = True
+, plugins = ["neurondhall", "links", "tags", "dirtree", "uptree"]
 }
