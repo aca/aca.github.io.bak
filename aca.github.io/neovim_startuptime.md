@@ -68,7 +68,7 @@ let g:loaded_remote_plugins    = 1
 ```
 ## Visual settings
 
-These kinds of visual helpers cause too much screen redraw and cause significant lag on large files. Turn it on when you need it.
+These kinds of visual helpers cause too much screen redraw and significant lag on large files. Turn it on when you need it.
 ```
 set nonumber
 set norelativenumber
